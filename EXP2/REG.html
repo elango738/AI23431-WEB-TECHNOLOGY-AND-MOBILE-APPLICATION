@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #89f7fe, #66a6ff);
+        }
+        .form-box {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+        }
+    </style>
+
+    <script>
+        function validateForm() {
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let password = document.getElementById("password").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+            let address = document.getElementById("address").value;
+
+            let namePattern = /^[A-Za-z]+$/;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!namePattern.test(fname) || fname.length < 6) {
+                alert("First Name must contain only alphabets and at least 6 characters.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid Email ID.");
+                return false;
+            }
+
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                alert("Mobile Number must contain exactly 10 digits.");
+                return false;
+            }
+
+            if (lname === "") {
+                alert("Last Name cannot be empty.");
+                return false;
+            }
+
+            if (address === "") {
+                alert("Address cannot be empty.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="form-box">
+        <h2>Registration Form</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="fname" placeholder="First Name">
+            <input type="text" id="lname" placeholder="Last Name">
+            <input type="password" id="password" placeholder="Password">
+            <input type="text" id="email" placeholder="Email ID">
+            <input type="text" id="mobile" placeholder="Mobile Number">
+            <textarea id="address" placeholder="Address"></textarea>
+            <br><br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

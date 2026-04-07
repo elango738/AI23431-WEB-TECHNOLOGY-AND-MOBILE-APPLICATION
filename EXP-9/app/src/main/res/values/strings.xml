@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EMAIL</string>
+
+    <string name="email_hint">Recipient Email</string>
+    <string name="subject_hint">Subject</string>
+    <string name="message_hint">Message</string>
+    <string name="send_email">Send Email</string>
+
+</resources>
